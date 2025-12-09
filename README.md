@@ -17,6 +17,7 @@
   - [Input Format](#input-format)
   - [Run Inference](#run-inference)
   - [Output Format](#output-format)
+- [Training](#training)
 - [Cite](#cite)
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
@@ -55,6 +56,7 @@ docker run --gpus all -it --rm --shm-size=8g \
   -v /path/to/data_root_dir:/app/ODesign/data \
   -v $(pwd)/outputs:/app/ODesign/outputs \
   -v $(pwd)/inference_demo.sh:/app/ODesign/inference_demo.sh \
+  -v $(pwd)/train_demo.sh:/app/ODesign/train_demo.sh \
   odesign bash
 ```
 
@@ -63,10 +65,10 @@ ODesign currently provides the following pre-trained model variants. Each model 
 
 | Model Name                  | Design Modality | Design Mode          | Hugging Face                                                                         |
 | --------------------------- | ----------------- | ---------------------- | ------------------------------------------------------------------------------------ |
-| `odesign_base_prot_flex`    | protein           | flexible-receptor | [odesign_base_prot_flex.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/odesign_base_prot_flex/resolve/main/odesign_base_prot_flex.pt?download=true) |
-| `odesign_base_prot_rigid`   | protein           | rigid-receptor    | [odesign_base_prot_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/odesign_base_prot_rigid/resolve/main/odesign_base_prot_rigid.pt?download=true) |
-| `odesign_base_ligand_rigid` | ligand            | rigid-receptor    | [odesign_base_ligand_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/odesign_base_ligand_rigid/resolve/main/odesign_base_ligand_rigid.pt?download=true) |
-| `odesign_base_na_rigid`     | nucleic acid      | rigid-receptor    | [odesign_base_na_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/odesign_base_na_rigid/resolve/main/odesign_base_na_rigid.pt?download=true) |
+| `odesign_base_prot_flex`    | protein           | flexible-receptor | [odesign_base_prot_flex.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_prot_flex.pt?download=true) |
+| `odesign_base_prot_rigid`   | protein           | rigid-receptor    | [odesign_base_prot_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_prot_rigid.pt?download=true) |
+| `odesign_base_ligand_rigid` | ligand            | rigid-receptor    | [odesign_base_ligand_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_ligand_rigid.pt?download=true) |
+| `odesign_base_na_rigid`     | nucleic acid      | rigid-receptor    | [odesign_base_na_rigid.pt](https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_na_rigid.pt?download=true) |
 
 <div align="center">
   <img src="imgs/odesign_design_mode.jpg" alt="ODesign Design Mode" width="85%">
@@ -90,27 +92,9 @@ Please refer to **Section B.1 & B.2** in our [Supplementary Information](https:/
 ## Run Inference
 **Step 1 — Download Required Inference Data**
 
-Before running inference for the first time, please download the required data using the following command:
+Before running inference for the first time, please download the `components.v20240608.cif` and `components.v20240608.cif.rdkit_mol.pkl` from [Google Drive](https://drive.google.com/drive/folders/1wPmwIrC3G52q1JFY0RXY95tjKDl7YEln?usp=drive_link), and place these files under your specified `data_root_dir`.
 
-```bash
-cd ODesign
-bash ./data/get_odesign_data.sh [data_root_dir] [inference_only]
-```
 
-`get_odesign_data.sh` accepts the following arguments:
-
-| Argument         | Description                                                                                                | Default  |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | -------- |
-| `data_root_dir`  | Directory where downloaded data will be stored.                                                            | `./data` |
-| `inference_only` | If set to `true`, only inference-related files will be downloaded. Set `false` if you also need training data. | `true`   |
-
-> Please note that the training data and code are still under preparation, which will be released soon. Stay tuned!
-
-Once the script completes, you should see:
-
-```
-🎉 SUCCESS: All required data files have been downloaded!
-```
 
 **Step 2 — Run the Inference Demo**
 
@@ -177,6 +161,25 @@ outputs
 
 > Please note that the number of designed sequences per backbone structure (default: 1) can be specified by the argument `exp.invfold_topk`.
 
+
+# Training
+**Step 1 — Download Required Training Data**
+
+Before training ODesign, please download the `odesign_full_data.tar.gz` from [Google Drive](https://drive.google.com/drive/folders/1wPmwIrC3G52q1JFY0RXY95tjKDl7YEln?usp=drive_link), and unzip the file using the following command. About 850 GB of disk space is required to keep the unzipped files.
+
+```bash
+tar -xzvf [data_root_dir]/odesign_train_data.tar.gz -C [data_root_dir]
+```
+
+**Step 2 — Run the Training Demo**
+
+After data preparation, launch the training process using:
+
+```bash
+bash train_demo.sh
+```
+
+Please note that the `ckpt_root_dir` in `train_demo.sh` should contain the pre-trained folding model checkpoint for ODesign initialization if you are not training from scratch. Our default training setting employs [protenix_base_default_v0.5.0](https://af3-dev.tos-cn-beijing.volces.com/release_model/protenix_base_default_v0.5.0.pt).
 
 # Cite
 
