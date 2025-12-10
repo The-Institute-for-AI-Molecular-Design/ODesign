@@ -42,12 +42,17 @@ git clone https://github.com/The-Institute-for-AI-Molecular-Design/ODesign.git
 cd ODesign
 ```
 **Step 2 — Prepare the Environment (cuda 12.1)**
+
+- **pip**
+
 ```bash
 conda create -n odesign python=3.10
 conda activate odesign
 pip install -r requirements.txt -f https://data.pyg.org/whl/torch-2.3.1+cu121.html
 ```
-Alternatively, you can build and run the docker image using the following commands:
+
+- **Docker**
+
 ```bash
 docker build -t odesign -f Dockerfile .
 
@@ -60,7 +65,7 @@ docker run --gpus all -it --rm --shm-size=8g \
   odesign bash
 ```
 
-Or use Apptainer:
+- **Apptainer**
 
 ```bash
 apptainer build odesign.sif odesign.def
