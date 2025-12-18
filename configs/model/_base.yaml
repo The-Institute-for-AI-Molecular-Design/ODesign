@@ -1,0 +1,119 @@
+c_s: 384
+c_z: 128
+c_s_inputs: 453
+c_atom: 128
+c_atompair: 16
+c_token: 384
+n_blocks: 48
+max_atoms_per_token: 24
+no_bins: 64
+chunk_size: 64
+diffusion_chunk_size: 4
+blocks_per_ckpt: 1
+sigma_data: 16.0
+
+use_memory_efficient_kernel: false
+use_deepspeed_evo_attention: false
+use_flash: false
+use_lma: false
+use_xformer: false
+dtype: bf16
+loss_metrics_sparse_enable: true
+skip_amp:
+  loss: true
+  sample_diffusion: true
+  sample_diffusion_training: true
+find_unused_parameters: false
+
+train_noise_schedulers:
+  coordinate:
+    p_mean: -1.2
+    p_std: 1.5
+    sigma_data: ${exp.model.sigma_data}
+
+inference_noise_schedulers:
+  coordinate:
+    rho: 7
+    s_max: 160.0
+    s_min: 4e-4
+    sigma_data: ${exp.model.sigma_data}
+    use_predictor_corrector_sampler: true
+    gamma0: 0.8
+    gamma_min: 1.0
+    noise_scale_lambda: 1.003
+    step_scale_eta: 1.5
+
+sample_diffusion:
+  N_sample: 5
+  N_step: 200
+  attn_chunk_size: ${exp.model.chunk_size}
+  diffusion_chunk_size: 1
+
+# Model
+N_model_seed: 1
+N_cycle: 10
+condition_embedding_drop_rate: 0.0
+input_embedder:
+  c_atom: ${exp.model.c_atom}
+  c_atompair: ${exp.model.c_atompair}
+  c_token: ${exp.model.c_token}
+relative_position_encoding:
+  c_z: ${exp.model.c_z}
+  r_max: 32
+  s_max: 2
+template_embedder:
+  blocks_per_ckpt: ${exp.model.blocks_per_ckpt}
+  c: 64
+  c_z: ${exp.model.c_z}
+  dropout: 0.25
+  n_blocks: 0
+msa_module:
+  blocks_per_ckpt: ${exp.model.blocks_per_ckpt}
+  c_m: 64
+  c_s_inputs: ${exp.model.c_s_inputs}
+  c_z: ${exp.model.c_z}
+  msa_chunk_size: 2048
+  msa_dropout: 0.15
+  n_blocks: 4
+  pair_dropout: 0.25
+constraint_distogram_embedder:
+  blocks_per_ckpt: ${exp.model.blocks_per_ckpt}
+  c: 64
+  c_z: ${exp.model.c_z}
+  dropout: 0.25
+  n_blocks: 2
+pairformer:
+  blocks_per_ckpt: ${exp.model.blocks_per_ckpt}
+  c_s: ${exp.model.c_s}
+  c_z: ${exp.model.c_z}
+  dropout: 0.25
+  n_blocks: ${exp.model.n_blocks}
+  n_heads: 16
+diffusion_module:
+  use_fine_grained_checkpoint: true
+  sigma_data: ${exp.model.sigma_data}
+  blocks_per_ckpt: ${exp.model.blocks_per_ckpt}
+  c_atom: ${exp.model.c_atom}
+  c_atompair: ${exp.model.c_atompair}
+  c_s: ${exp.model.c_s}
+  c_s_inputs: ${exp.model.c_s_inputs}
+  c_token: 768
+  c_z: ${exp.model.c_z}
+  atom_encoder:
+    n_blocks: 3
+    n_heads: 4
+  transformer:
+    n_blocks: 24
+    n_heads: 16
+  atom_decoder:
+    n_blocks: 3
+    n_heads: 4
+pairwise_head:
+  c_z: ${exp.model.c_z}
+  no_bins: ${exp.model.no_bins}
+  bond_reconstruction: ${exp.bond_reconstruction}
+
+
+    
+
+    

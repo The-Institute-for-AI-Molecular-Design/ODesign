@@ -1,0 +1,45 @@
+num_dl_workers: 0
+epoch_size: 10000
+
+train_crop_size: ${exp.train_crop_size}
+test_max_n_token: -1
+
+train_lig_atom_rename: false
+train_shuffle_mols: false
+train_shuffle_sym_ids: false
+train_ref_pos_augment: true
+
+test_lig_atom_rename: false
+test_shuffle_mols: false
+test_shuffle_sym_ids: false
+test_ref_pos_augment: true
+
+train_sampler:
+  sampler_type: weighted
+  train_sample_weights:
+  - 1.0
+
+msa:
+  enable: true
+  enable_rna_msa: false
+  max_size:
+    test: 16384
+    train: 16384
+  min_size:
+    test: 1
+    train: 1
+  sample_cutoff:
+    test: 16384
+    train: 16384
+  prot:
+    indexing_method: sequence
+    non_pairing_db: mmseqs_other
+    pairing_db: uniref100
+    pdb_mmseqs_dir: ${data_root_dir}/mmcif_msa
+    seq_to_pdb_idx_path: ${data_root_dir}/seq_to_pdb_index.json
+  rna:
+    indexing_method: sequence
+    rna_msa_dir: ''
+    seq_to_pdb_idx_path: ''
+  merge_method: dense_max
+  strategy: random

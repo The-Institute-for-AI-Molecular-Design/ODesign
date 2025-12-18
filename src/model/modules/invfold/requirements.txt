@@ -1,0 +1,21 @@
+numpy<=2.0.0
+requests>=2.23.0
+torch>=2.0.1
+torchaudio>=2.0.1
+torchvision>=0.15.2
+biopython>=1.81
+tqdm>=4.66.5
+joblib>=1.4.2
+torcheval>=0.0.7
+pytorch-lightning==1.9.0
+omegaconf>=2.3.0
+transformers>=4.44.2
+torch_geometric
+scikit-learn
+pandas
+matplotlib
+fair-esm
+biotite==0.37.0
+deepspeed
+
+-f https://data.pyg.org/whl/torch-2.4.0+cu121.html

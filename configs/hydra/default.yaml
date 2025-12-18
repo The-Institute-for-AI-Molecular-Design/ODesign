@@ -1,0 +1,11 @@
+defaults:
+  - override hydra_logging: colorlog
+  - override job_logging: colorlog
+
+run:
+  dir: ./outputs/${exp.exp_name}/${now:%Y-%m-%d_%H-%M}-00
+
+job_logging:
+  handlers:
+    file:
+      filename: ${hydra.run.dir}/run.log

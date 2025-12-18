@@ -1,0 +1,26 @@
+defaults:
+  - _self_
+  - _base
+  - /data:
+    - weightedPDB_before2109_wopb_nometalc_0925
+    - recentPDB_1536_sample384_0925
+  - /model: odesign_base_default
+  - /optimizer: adam
+  - /lr_scheduler: af3
+  - /loss: _base
+
+exp_name: train_odesign_base_prot_flex
+load_checkpoint_path: ${ckpt_root_dir}/protenix_base_default_v0.5.0.pt
+train_sets:
+  - weightedPDB_before2109_wopb_nometalc_0925
+test_sets:
+  - recentPDB_1536_sample384_0925
+
+data_condition: [data, constraint_distogram]
+use_hotspot_residue: true
+mask_type: [prot]
+train_mask_method: ''
+eval_mask_method: 'all'
+diffusion_batch_size: 48
+train_crop_size: 640
+

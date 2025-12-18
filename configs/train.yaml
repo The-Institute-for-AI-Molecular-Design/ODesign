@@ -1,0 +1,7 @@
+defaults:
+  - _self_
+  - exp: train_odesign_base_prot_flex
+  - hydra: default
+
+data_root_dir: ./data
+ckpt_root_dir: ./ckpt

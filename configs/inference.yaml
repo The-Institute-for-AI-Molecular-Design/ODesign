@@ -1,0 +1,22 @@
+defaults:
+  - exp: train_odesign_base_prot_flex
+  - hydra: default
+  - _self_
+
+data_root_dir: ./data
+ckpt_root_dir: ./ckpt
+
+exp:
+  exp_name: antibody_design
+  infer_model_name: ab
+  design_modality: protein
+  input_json_path: ./examples/scfv.json
+  num_workers: 0
+  use_msa: false
+  seeds: [42, 101]
+  invfold_topk: 1 # number of designed sequences per backbone structure
+  invfold_temp: 1.0
+  invfold_use_beam: True
+  model:
+    sample_diffusion:
+      N_sample: 5

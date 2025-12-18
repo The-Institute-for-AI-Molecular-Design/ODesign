@@ -1,0 +1,56 @@
+defaults:
+  - _self_
+
+project: ODesign
+
+eval_interval: 400
+log_interval: 1
+checkpoint_interval: 400
+max_steps: 100000
+
+eval_first: true
+eval_only: false
+eval_dump: false
+
+iters_to_accumulate: 1
+
+load_strict: false
+load_params_only: true
+skip_load_step: false
+skip_load_optimizer: false
+skip_load_scheduler: false
+load_step_for_scheduler: true
+
+use_wandb: true
+wandb_mode: offline
+wandb_id: ''
+
+seed: 42
+deterministic: false
+
+grad_clip_norm: 10
+
+bond_reconstruction: true
+
+chain_permutation:
+  configs:
+    accept_it_as_it_is: false
+    enumerate_all_anchor_pairs: false
+    find_gt_anchor_first: false
+    selection_metric: aligned_rmsd
+    use_center_rmsd: false
+  permute_by_pocket: true
+  test:
+    diffusion_sample: true
+  train:
+    diffusion_sample: false
+    mini_rollout: true
+
+atom_permutation:
+  global_align_wo_symmetric_atom: false
+  permute_by_pocket: true
+  test:
+    diffusion_sample: true
+  train:
+    diffusion_sample: false
+    mini_rollout: true

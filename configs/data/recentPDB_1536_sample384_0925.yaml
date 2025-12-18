@@ -1,0 +1,40 @@
+defaults:
+  - _base
+  - _self_
+
+recentPDB_1536_sample384_0925:
+  base_info:
+    mmcif_dir: ${data_root_dir}/mmcif
+    bioassembly_dict_dir: ${data_root_dir}/recentPDB_bioassembly
+    indices_fpath: ${data_root_dir}/indices/recentPDB_low_homology_maxtoken1536.csv
+    pdb_list: ${data_root_dir}/indices/recentPDB_low_homology_maxtoken1024_sample384_pdb_id.txt
+    max_n_token: ${exp.data.test_max_n_token}
+    sort_by_n_token: false
+    group_by_pdb_id: true
+    find_eval_chain_interface: true
+    
+  # General Test Set Configs
+  sampler_configs:
+    sampler_type: uniform
+
+  cropping_configs:
+    crop_size: -1
+    method_weights:
+    - 0.0  # ContiguousCropping
+    - 0.0  # SpatialCropping
+    - 1.0  # SpatialInterfaceCropping
+
+  lig_atom_rename: ${exp.data.test_lig_atom_rename}
+  shuffle_mols: ${exp.data.test_shuffle_mols}
+  shuffle_sym_ids: ${exp.data.test_shuffle_sym_ids}
+  ref_pos_augment: ${exp.data.test_ref_pos_augment}
+  data_condition: ${exp.data_condition}
+  mask_method: ${exp.eval_mask_method}
+  mask_type: ${exp.mask_type}
+  use_hotspot_residue: ${exp.use_hotspot_residue}
+  return_atom_token_array: ${exp.eval_dump}
+
+    
+    
+
+    

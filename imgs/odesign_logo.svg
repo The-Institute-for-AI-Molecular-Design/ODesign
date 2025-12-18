@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300.56 84.7">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a194f3;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #363049;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-5 {
+        fill: url(#_未命名的渐变_91);
+      }
+
+      .cls-5, .cls-6 {
+        mix-blend-mode: hue;
+      }
+
+      .cls-6 {
+        fill: url(#_未命名的渐变_94);
+      }
+
+      .cls-3 {
+        font-family: OPlusSans3.0-Bold, 'OPlusSans 3.0';
+        font-size: 50.67px;
+        font-weight: 700;
+        letter-spacing: .01em;
+      }
+    </style>
+    <linearGradient id="_未命名的渐变_94" data-name="未命名的渐变 94" x1="0" y1="49.94" x2="19.37" y2="49.94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7665c4"/>
+      <stop offset=".49" stop-color="#a194f3"/>
+      <stop offset="1" stop-color="#efe0ff"/>
+    </linearGradient>
+    <linearGradient id="_未命名的渐变_91" data-name="未命名的渐变 91" x1="26.77" y1="23.86" x2="67.53" y2="23.86" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6c5aba"/>
+      <stop offset=".49" stop-color="#a194f3"/>
+      <stop offset="1" stop-color="#efe0ff"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-4">
+    <g id="_图层_2" data-name="图层 2">
+      <g id="_图层_1-2" data-name="图层 1">
+        <text class="cls-3" transform="translate(80.97 56.88)"><tspan x="0" y="0">ODesign</tspan></text>
+        <circle class="cls-6" cx="9.69" cy="49.94" r="9.69"/>
+        <circle class="cls-1" cx="11.73" cy="15.06" r="5.7"/>
+        <circle class="cls-2" cx="55.09" cy="51.18" r="5.7"/>
+        <path class="cls-2" d="M42.98,57.65c-.53-5.61-6.03-9.98-11.62-9.24-1.99.17-4.05.97-6.04.73-4.66-.62-3.85-6.34-4.68-9.86-.52-2.92,2.04-5.41,4.55-6.47,1.6-.66,3.22-.32,4.97-.71,3.39-.66,5.18-4.85,3.45-7.8-1.8-3.52-7.35-3.58-9.23-.09-.98,1.67-.78,3.58-1.56,5.29-.83,1.9-3.01,3.97-5,4.34-1.53.31-3.02-.34-4.53-.61-9.56-1.68-14.91,10.28-7.65,16.46,5.93,5.12,11.74-1.04,15.26,2.7,1.6,1.94.92,5.02,1.23,7.42.14,1.41.54,2.79,1.2,4.02,5.55,10.07,20.69,5.36,19.66-6.06v-.12Z"/>
+        <path class="cls-5" d="M26.83,11.7c.53,5.61,6.03,9.98,11.62,9.24,1.99-.17,4.05-.97,6.04-.73,4.66.62,3.85,6.34,4.68,9.86.52,2.92-2.04,5.41-4.55,6.47-1.6.66-3.22.32-4.97.71-3.39.66-5.18,4.85-3.45,7.8,1.8,3.52,7.35,3.58,9.23.09.98-1.67.78-3.58,1.56-5.29.83-1.9,3.01-3.97,5-4.34,1.53-.31,3.02.34,4.53.61,9.56,1.68,14.91-10.28,7.65-16.46-5.93-5.12-11.74,1.04-15.26-2.7-1.6-1.94-.92-5.02-1.23-7.42-.14-1.41-.54-2.79-1.2-4.02C40.93-4.55,25.78.16,26.82,11.58v.12Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

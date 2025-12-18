@@ -1,0 +1,52 @@
+defaults:
+  - _base
+  - _self_
+
+weightedPDB_before2109_wopb_nometalc_0925:
+  base_info:
+    mmcif_dir: ${data_root_dir}/mmcif
+    bioassembly_dict_dir: ${data_root_dir}/mmcif_bioassembly
+    indices_fpath: ${data_root_dir}/indices/weightedPDB_indices_before_2021-09-30_wo_posebusters_resolution_below_9.csv.gz
+    pdb_list: ''
+    random_sample_if_failed: true
+    max_n_token: -1
+    use_reference_chains_only: false   
+    exclusion:
+      mol_1_type:
+      - ions
+      mol_2_type:
+      - ions
+
+  # General Training Set Configs
+  sampler_configs:
+    alpha_dict:
+      ligand: 1
+      nuc: 3
+      prot: 3
+    beta_dict:
+      chain: 0.5
+      interface: 1
+    force_recompute_weight: true
+    sampler_type: weighted
+
+  cropping_configs:
+    crop_size: ${exp.data.train_crop_size}
+    method_weights:
+    - 0.2  # ContiguousCropping
+    - 0.4  # SpatialCropping
+    - 0.4  # SpatialInterfaceCropping
+
+  sample_weight: 0.5
+  limits: -1
+  lig_atom_rename: ${exp.data.train_lig_atom_rename}
+  shuffle_mols: ${exp.data.train_shuffle_mols}
+  shuffle_sym_ids: ${exp.data.train_shuffle_sym_ids}
+  ref_pos_augment: ${exp.data.train_ref_pos_augment}
+  data_condition: ${exp.data_condition}
+  mask_method: ${exp.train_mask_method}
+  mask_type: ${exp.mask_type}
+  use_hotspot_residue: ${exp.use_hotspot_residue}
+
+
+
+
