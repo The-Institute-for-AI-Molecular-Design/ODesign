@@ -221,7 +221,7 @@ bash inference_demo.sh
 ```
 with `infer_model_name=odesign_base_prot_flex` and `input_json_path=./examples/protein_design/atom_scaffold/odesign_input.json`.
 
-### Motif Scaffold
+#### Motif Scaffold
 <p align="center">
 <img src="imgs/protein/motif_scaffolding.png" alt="Motif Scaffold" width="400px" align="middle"/>
 </p>
