@@ -249,11 +249,11 @@ with `infer_model_name=odesign_base_ligand_rigid` and `input_json_path=./example
 
 ### Nucleic Acid Generation
 
-#### RNA Backbone
+#### Backbone Generation
 <p align="center">
 <img src="imgs/na/rna_backbone.png" alt="RNA Backbone" width="300px" align="middle"/>
 </p>
-ODesign can generate RNA backbone structures of specified length. This is useful for designing RNA molecules from scratch without requiring a reference structure. You only need to specify the desired RNA chain length.
+ODesign can generate nucleic acid backbone structures of specified length. This is useful for designing NA molecules from scratch without requiring a reference structure. You only need to specify the desired RNA chain length. Note: This example demonstrates RNA generation. To generate DNA instead, modify the `chain_type` field in the JSON input file to `"dnaChain"` and set `design_modality=dna`.
 
 To run this example, use:
 ```bash
@@ -261,11 +261,11 @@ bash inference_demo.sh
 ```
 with `infer_model_name=odesign_base_na_rigid`, `design_modality=rna`, and `input_json_path=./examples/na_design/rna_bb/odesign_input.json`.
 
-#### Protein-binding RNA
+#### Protein-binding Nucleic Acid
 <p align="center">
 <img src="imgs/na/protein_binding_rna.png" alt="Protein-binding RNA" width="400px" align="middle"/>
 </p>
-ODesign can generate RNA molecules that bind to specific protein targets. You need to provide a reference structure containing the target protein and specify the hotspot residues that define the binding interface. The model will generate a new RNA chain that interacts with the target at the specified hotspot.
+ODesign can generate nucleic acid molecules that bind to specific protein targets. You need to provide a reference structure containing the target protein and specify the hotspot residues that define the binding interface. The model will generate a new NA chain that interacts with the target at the specified hotspot. Note: This example demonstrates RNA generation. To generate DNA instead, modify the `chain_type` field in the JSON input file (e.g., change `"rnaChain"` to `"dnaChain"`) and set `design_modality=dna`.
 
 To run this example, use:
 ```bash
