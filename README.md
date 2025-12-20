@@ -1,14 +1,13 @@
 <div align="center">
   <img src="imgs/odesign_logo.svg" alt="ODesign" width="60%">
 </div>
-
-<div align="center">
+<p align="center">
 [![Web Server](https://img.shields.io/badge/Web_Server-Access-9A8CF0?logo=internet-explorer)](https://odesign.lglab.ac.cn/)
 [![Technical Report](https://img.shields.io/badge/Technical_Report-Download-9A8CF0?logo=adobe-acrobat-reader)](https://odesign1.github.io/static/pdfs/technical_report.pdf)
 [![Project Page](https://img.shields.io/badge/Project_Page-Access-9A8CF0?logo=adobe-acrobat-reader)](https://odesign1.github.io/)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Join-25D366?logo=whatsapp)](https://chat.whatsapp.com/BfO6E7EGYpwDdjAAreKDVq?mode=wwt)
 [![WeChat](https://img.shields.io/badge/WeChat-Join-07C160?logo=wechat)](https://github.com/The-Institute-for-AI-Molecular-Design/ODesign/blob/main/imgs/odesign_wechat_qr_code.jpg)
-</div>
+
 
 - [Installation](#installation)
 - [Available Models](#available-models)
