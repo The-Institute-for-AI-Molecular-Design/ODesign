@@ -21,7 +21,7 @@ ckpt_root_dir="${1:-$DEFAULT_CKPT_ROOT_DIR}"
 
 # Available checkpoints
 CKPTS=(
-    "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/ab.pt?download=true"
+    # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/ab.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_prot_rigid.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_ligand_rigid.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_na_rigid.pt?download=true"
@@ -29,7 +29,9 @@ CKPTS=(
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/OInvFold/resolve/main/oinvfold_ligand.ckpt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/OInvFold/resolve/main/oinvfold_dna.ckpt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/OInvFold/resolve/main/oinvfold_rna.ckpt?download=true"
+    "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign-AB/resolve/main/ab.pt?download=true"
 )
+
 
 echo "-----------------------------------------------------------"
 echo "🚀 Start ODesign Checkpoint Download"
