@@ -21,7 +21,7 @@ ckpt_root_dir="${1:-$DEFAULT_CKPT_ROOT_DIR}"
 
 # Available checkpoints
 CKPTS=(
-    # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_prot_flex.pt?download=true"
+    "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/ab.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_prot_rigid.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_ligand_rigid.pt?download=true"
     # "https://huggingface.co/The-Institute-for-AI-Molecular-Design/ODesign/resolve/main/ckpt/odesign_base_na_rigid.pt?download=true"
