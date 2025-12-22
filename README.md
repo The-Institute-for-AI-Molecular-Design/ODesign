@@ -22,7 +22,7 @@ Create a JSON file to define your design task.
 [
     {
         "name": "abtest",
-        "antigen": "/data/qinghan/OFAntibody/rfantibody_targets/truncated/6oq5_tcdb_truncated.pdb",
+        "antigen": "./examples/antigen/6oq5_tcdb_truncated.pdb",
         "hotspot": "A/538,A/151,A/152,A/148,A/539",
         "chains": [
             {
