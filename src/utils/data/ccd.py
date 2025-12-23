@@ -208,7 +208,7 @@ def get_component_rdkit_mol(ccd_code: str) -> Union[Chem.Mol, None]:
     else:
         raise FileNotFoundError(
             f"CCD components file {rdkit_mol_pkl} not found, please download it to your DATA_ROOT_DIR before running."
-            "See https://github.com/bytedance/Protenix"
+            "See https://github.com/The-Institute-for-AI-Molecular-Design/ODesign"
         )
 
 

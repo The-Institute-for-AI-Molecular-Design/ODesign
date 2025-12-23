@@ -428,7 +428,7 @@ class CIFWriter:
         cif = pdbx.CIFFile(
             {
                 os.path.basename(output_path).replace(".cif", "")
-                + "_predicted_by_protenix": block
+                + "_generated_by_odesign": block
             }
         )
         pdbx.set_structure(cif, self.atom_array, include_bonds=include_bonds)
